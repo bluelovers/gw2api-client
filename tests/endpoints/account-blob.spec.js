@@ -1,6 +1,6 @@
 /* eslint-env node, mocha */
 import { expect } from 'chai'
-import endpoint, { wrap } from '../../src/endpoints/account-blob'
+import endpoint, { wrap } from '../../build/endpoints/account-blob'
 
 function makeApi (hasGuildPermission) {
   return () => ({

@@ -1,6 +1,6 @@
 import AbstractEndpoint from '../endpoint'
 
-export default class BackstoryEndpoint extends AbstractEndpoint {
+export class BackstoryEndpoint extends AbstractEndpoint {
   answers () {
     return new AnswersEndpoint(this)
   }
@@ -10,7 +10,9 @@ export default class BackstoryEndpoint extends AbstractEndpoint {
   }
 }
 
-class AnswersEndpoint extends AbstractEndpoint {
+export default BackstoryEndpoint
+
+export class AnswersEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/backstory/answers'
@@ -22,7 +24,7 @@ class AnswersEndpoint extends AbstractEndpoint {
   }
 }
 
-class QuestionsEndpoint extends AbstractEndpoint {
+export class QuestionsEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/backstory/questions'

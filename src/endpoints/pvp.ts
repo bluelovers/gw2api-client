@@ -1,7 +1,10 @@
 import AbstractEndpoint from '../endpoint'
 
-export default class PvpEndpoint extends AbstractEndpoint {
-  constructor (client, fromAccount) {
+export class PvpEndpoint extends AbstractEndpoint {
+
+  public fromAccount;
+
+  constructor (client, fromAccount?) {
     super(client)
     this.fromAccount = fromAccount
   }
@@ -39,7 +42,9 @@ export default class PvpEndpoint extends AbstractEndpoint {
   }
 }
 
-class AccountHeroesEndpoint extends AbstractEndpoint {
+export default PvpEndpoint
+
+export class AccountHeroesEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/account/pvp/heroes'
@@ -48,7 +53,7 @@ class AccountHeroesEndpoint extends AbstractEndpoint {
   }
 }
 
-class AmuletsEndpoint extends AbstractEndpoint {
+export class AmuletsEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/pvp/amulets'
@@ -59,7 +64,7 @@ class AmuletsEndpoint extends AbstractEndpoint {
   }
 }
 
-class GamesEndpoint extends AbstractEndpoint {
+export class GamesEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/pvp/games'
@@ -70,7 +75,7 @@ class GamesEndpoint extends AbstractEndpoint {
   }
 }
 
-class HeroesEndpoint extends AbstractEndpoint {
+export class HeroesEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/pvp/heroes'
@@ -81,7 +86,7 @@ class HeroesEndpoint extends AbstractEndpoint {
   }
 }
 
-class RanksEndpoint extends AbstractEndpoint {
+export class RanksEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/pvp/ranks'
@@ -92,7 +97,10 @@ class RanksEndpoint extends AbstractEndpoint {
   }
 }
 
-class SeasonsEndpoint extends AbstractEndpoint {
+export class SeasonsEndpoint extends AbstractEndpoint {
+
+	public id;
+
   constructor (client, id) {
     super(client)
     this.id = id
@@ -108,7 +116,10 @@ class SeasonsEndpoint extends AbstractEndpoint {
   }
 }
 
-class SeasonLeaderboardEndpoint extends AbstractEndpoint {
+export class SeasonLeaderboardEndpoint extends AbstractEndpoint {
+
+  public id;
+
   constructor (client, id) {
     super(client)
     this.id = id
@@ -125,7 +136,7 @@ class SeasonLeaderboardEndpoint extends AbstractEndpoint {
   }
 }
 
-class SeasonLeaderboardBoardEndpoint extends AbstractEndpoint {
+export class SeasonLeaderboardBoardEndpoint extends AbstractEndpoint {
   constructor (client, id, board, region) {
     super(client)
     this.url = `/v2/pvp/seasons/${id}/leaderboards/${board}/${region}`
@@ -134,7 +145,7 @@ class SeasonLeaderboardBoardEndpoint extends AbstractEndpoint {
   }
 }
 
-class StandingsEndpoint extends AbstractEndpoint {
+export class StandingsEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/pvp/standings'
@@ -143,7 +154,7 @@ class StandingsEndpoint extends AbstractEndpoint {
   }
 }
 
-class StatsEndpoint extends AbstractEndpoint {
+export class StatsEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/pvp/stats'

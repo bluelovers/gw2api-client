@@ -1,8 +1,8 @@
 /* eslint-env node, mocha */
 import { expect } from 'chai'
-import nullCache from '../src/cache/null'
-import memoryCache from '../src/cache/memory'
-import Module from '../src/client'
+import nullCache from '../build/cache/null'
+import memoryCache from '../build/cache/memory'
+import Module from '../build/client'
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 describe('client', () => {
