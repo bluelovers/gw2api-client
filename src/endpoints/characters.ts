@@ -7,7 +7,7 @@ export class CharactersEndpoint extends AbstractEndpoint
 
 	public name: string;
 
-	constructor(client: Client.Client, name: string)
+	constructor(client: Client.Client | AbstractEndpoint, name: string)
 	{
 		super(client)
 		this.name = name
