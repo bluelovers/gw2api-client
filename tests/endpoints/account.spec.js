@@ -2,7 +2,7 @@
 import { expect } from 'chai'
 import sinon from 'sinon'
 import { mockClient, fetchMock } from '../mocks/client.mock'
-import Module from '../../src/endpoints/account'
+import Module from '../../build/endpoints/account'
 
 describe('endpoints > account', () => {
   let endpoint
