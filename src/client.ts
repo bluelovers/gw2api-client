@@ -1,6 +1,6 @@
 import fetch from 'lets-fetch'
 import flow from 'promise-control-flow'
-import debugging from 'debug'
+import * as debugging from 'debug'
 import nullCache from './cache/null'
 import * as endpoints from './endpoints'
 
