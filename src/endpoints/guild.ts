@@ -1,6 +1,9 @@
 import AbstractEndpoint from '../endpoint'
 
-export default class GuildEndpoint extends AbstractEndpoint {
+export class GuildEndpoint extends AbstractEndpoint {
+
+  public id: string;
+
   constructor (client, id) {
     super(client)
     this.id = id
@@ -59,7 +62,9 @@ export default class GuildEndpoint extends AbstractEndpoint {
   }
 }
 
-class PermissionsEndpoint extends AbstractEndpoint {
+export default GuildEndpoint
+
+export class PermissionsEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/guild/permissions'
@@ -70,7 +75,7 @@ class PermissionsEndpoint extends AbstractEndpoint {
   }
 }
 
-class SearchEndpoint extends AbstractEndpoint {
+export class SearchEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/guild/search'
@@ -83,7 +88,7 @@ class SearchEndpoint extends AbstractEndpoint {
   }
 }
 
-class AllUpgradesEndpoint extends AbstractEndpoint {
+export class AllUpgradesEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/guild/upgrades'
@@ -94,7 +99,7 @@ class AllUpgradesEndpoint extends AbstractEndpoint {
   }
 }
 
-class LogEndpoint extends AbstractEndpoint {
+export class LogEndpoint extends AbstractEndpoint {
   constructor (client, id) {
     super(client)
     this.url = `/v2/guild/${encodeURIComponent(id)}/log`
@@ -107,7 +112,7 @@ class LogEndpoint extends AbstractEndpoint {
   }
 }
 
-class MembersEndpoint extends AbstractEndpoint {
+export class MembersEndpoint extends AbstractEndpoint {
   constructor (client, id) {
     super(client)
     this.url = `/v2/guild/${encodeURIComponent(id)}/members`
@@ -116,7 +121,7 @@ class MembersEndpoint extends AbstractEndpoint {
   }
 }
 
-class RanksEndpoint extends AbstractEndpoint {
+export class RanksEndpoint extends AbstractEndpoint {
   constructor (client, id) {
     super(client)
     this.url = `/v2/guild/${encodeURIComponent(id)}/ranks`
@@ -125,7 +130,7 @@ class RanksEndpoint extends AbstractEndpoint {
   }
 }
 
-class StashEndpoint extends AbstractEndpoint {
+export class StashEndpoint extends AbstractEndpoint {
   constructor (client, id) {
     super(client)
     this.url = `/v2/guild/${encodeURIComponent(id)}/stash`
@@ -134,7 +139,7 @@ class StashEndpoint extends AbstractEndpoint {
   }
 }
 
-class StorageEndpoint extends AbstractEndpoint {
+export class StorageEndpoint extends AbstractEndpoint {
   constructor (client, id) {
     super(client)
     this.url = `/v2/guild/${encodeURIComponent(id)}/storage`
@@ -143,7 +148,7 @@ class StorageEndpoint extends AbstractEndpoint {
   }
 }
 
-class TeamsEndpoint extends AbstractEndpoint {
+export class TeamsEndpoint extends AbstractEndpoint {
   constructor (client, id) {
     super(client)
     this.url = `/v2/guild/${encodeURIComponent(id)}/teams`
@@ -152,7 +157,7 @@ class TeamsEndpoint extends AbstractEndpoint {
   }
 }
 
-class TreasuryEndpoint extends AbstractEndpoint {
+export class TreasuryEndpoint extends AbstractEndpoint {
   constructor (client, id) {
     super(client)
     this.url = `/v2/guild/${encodeURIComponent(id)}/treasury`
@@ -161,7 +166,7 @@ class TreasuryEndpoint extends AbstractEndpoint {
   }
 }
 
-class UpgradesEndpoint extends AbstractEndpoint {
+export class UpgradesEndpoint extends AbstractEndpoint {
   constructor (client, id) {
     super(client)
     this.url = `/v2/guild/${encodeURIComponent(id)}/upgrades`

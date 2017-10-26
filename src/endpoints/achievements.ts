@@ -1,6 +1,6 @@
 import AbstractEndpoint from '../endpoint'
 
-export default class AchievementsEndpoint extends AbstractEndpoint {
+export class AchievementsEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/achievements'
@@ -28,7 +28,9 @@ export default class AchievementsEndpoint extends AbstractEndpoint {
   }
 }
 
-class CategoriesEndpoint extends AbstractEndpoint {
+export default AchievementsEndpoint
+
+export class CategoriesEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/achievements/categories'
@@ -39,7 +41,7 @@ class CategoriesEndpoint extends AbstractEndpoint {
   }
 }
 
-class GroupsEndpoint extends AbstractEndpoint {
+export class GroupsEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/achievements/groups'
@@ -50,7 +52,7 @@ class GroupsEndpoint extends AbstractEndpoint {
   }
 }
 
-class DailyEndpoint extends AbstractEndpoint {
+export class DailyEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/achievements/daily'
@@ -58,7 +60,7 @@ class DailyEndpoint extends AbstractEndpoint {
   }
 }
 
-class DailyTomorrowEndpoint extends AbstractEndpoint {
+export class DailyTomorrowEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/achievements/daily/tomorrow'
