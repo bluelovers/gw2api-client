@@ -6,7 +6,11 @@ coverage/
 .nyc_output/
 
 # Compiled code
-build/
+#build/
+!/build/*.d.ts
+!/build/*/*.d.ts
+build/*.js
+build/*/*.js
 
 # Dependencies
 node_modules/
@@ -20,3 +24,4 @@ node_modules/
 # Operating System
 .DS_Store
 Thumbs.db
+
