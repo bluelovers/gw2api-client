@@ -1,6 +1,6 @@
 /* eslint-env node, mocha */
 import { expect } from 'chai'
-import storage from '../../src/cache/memory'
+import storage from '../../build/cache/memory'
 const cache = storage({gcTick: 500})
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
