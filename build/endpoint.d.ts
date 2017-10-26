@@ -15,7 +15,7 @@ export interface IAbstractEndpoint extends Client.IClient {
     cacheTime?: number;
 }
 export interface IAbstractEndpointModule {
-    new (parent: Client.Client): IAbstractEndpoint;
+    new (parent: Client.Client | AbstractEndpoint): IAbstractEndpoint;
 }
 export declare function staticImplements<T>(): (constructor: T) => void;
 export declare class AbstractEndpoint implements IAbstractEndpoint {
@@ -35,13 +35,13 @@ export declare class AbstractEndpoint implements IAbstractEndpoint {
     _skipCache: boolean;
     url?: string;
     cacheTime?: number;
-    constructor(parent: Client.Client);
+    constructor(parent: Client.Client | AbstractEndpoint);
     language(lang: Client.vLang): this;
     authenticate(apiKey: Client.vApiKey): this;
     live(): this;
     ids(): any;
     _ids(): any;
-    get(id: vId, url?: boolean): any;
+    get(id?: vId, url?: boolean): any;
     _get(id: any, url: any): any;
     many(ids: vId[]): any;
     _many(ids: any, partialRequest?: boolean): any;
