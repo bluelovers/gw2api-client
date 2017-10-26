@@ -33,7 +33,7 @@ export interface IAbstractEndpoint extends Client.IClient
 
 export interface IAbstractEndpointModule
 {
-	new(parent: Client.Client): IAbstractEndpoint;
+	new(parent: Client.Client | AbstractEndpoint): IAbstractEndpoint;
 }
 
 export function staticImplements<T>()
@@ -65,7 +65,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	public url?: string;
 	public cacheTime?: number;
 
-	constructor(parent: Client.Client)
+	constructor(parent: Client.Client | AbstractEndpoint)
 	{
 		this.lang = parent.lang
 		this.apiKey = parent.apiKey
@@ -146,7 +146,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get a single entry by id
-	get(id: vId, url = false)
+	get(id?: vId, url = false)
 	{
 		debug(`get(${this.url}) called`)
 
