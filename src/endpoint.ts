@@ -1,9 +1,9 @@
-import parseUrl from 'url-parse'
-import unique from 'array-unique'
-import Rusha from 'rusha'
+import * as parseUrl from 'url-parse'
+import * as unique from 'array-unique'
+import * as Rusha from 'rusha'
 import clone from 'fast-clone'
-import chunk from 'chunk'
-import debugging from 'debug'
+import * as chunk from 'chunk'
+import * as debugging from 'debug'
 
 const sha = (s) => (new Rusha()).digestFromString(s)
 const debug = debugging('gw2api-client')
