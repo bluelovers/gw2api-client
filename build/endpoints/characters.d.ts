@@ -2,7 +2,7 @@ import AbstractEndpoint from '../endpoint';
 import * as Client from '../client';
 export declare class CharactersEndpoint extends AbstractEndpoint {
     name: string;
-    constructor(client: Client.Client, name: string);
+    constructor(client: Client.Client | AbstractEndpoint, name: string);
     backstory(): BackstoryEndpoint;
     core(): CoreEndpoint;
     crafting(): CraftingEndpoint;
