@@ -1,6 +1,18 @@
 import AbstractEndpoint from '../endpoint'
 
-export default class CommerceEndpoint extends AbstractEndpoint {
+export interface ITransactionsEndpoint1
+{
+	current(): ITransactionsEndpoint2;
+	history(): ITransactionsEndpoint2;
+}
+
+export interface ITransactionsEndpoint2
+{
+	buys(): TransactionsEndpoint;
+	sells(): TransactionsEndpoint;
+}
+
+export class CommerceEndpoint extends AbstractEndpoint {
   // Current things to grab in the delivery box
   delivery () {
     return new DeliveryEndpoint(this)
@@ -22,7 +34,7 @@ export default class CommerceEndpoint extends AbstractEndpoint {
   }
 
   // Current and completed transactions
-  transactions () {
+  transactions (): ITransactionsEndpoint1 {
     return {
       current: () => ({
         buys: () => new TransactionsEndpoint(this, 'current', 'buys'),
@@ -36,7 +48,9 @@ export default class CommerceEndpoint extends AbstractEndpoint {
   }
 }
 
-class DeliveryEndpoint extends AbstractEndpoint {
+export default CommerceEndpoint
+
+export class DeliveryEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = `/v2/commerce/delivery`
@@ -45,7 +59,7 @@ class DeliveryEndpoint extends AbstractEndpoint {
   }
 }
 
-class ExchangeEndpoint extends AbstractEndpoint {
+export class ExchangeEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/commerce/exchange'
@@ -61,7 +75,7 @@ class ExchangeEndpoint extends AbstractEndpoint {
   }
 }
 
-class ListingsEndpoint extends AbstractEndpoint {
+export class ListingsEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/commerce/listings'
@@ -72,7 +86,7 @@ class ListingsEndpoint extends AbstractEndpoint {
   }
 }
 
-class PricesEndpoint extends AbstractEndpoint {
+export class PricesEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/commerce/prices'
@@ -83,7 +97,7 @@ class PricesEndpoint extends AbstractEndpoint {
   }
 }
 
-class TransactionsEndpoint extends AbstractEndpoint {
+export class TransactionsEndpoint extends AbstractEndpoint {
   constructor (client, type, list) {
     super(client)
     this.url = `/v2/commerce/transactions/${type}/${list}`
