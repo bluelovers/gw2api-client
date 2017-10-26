@@ -74,7 +74,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Set the language for locale-aware endpoints
-	language(lang: Client.vLang)
+	public language(lang: Client.vLang)
 	{
 		this.lang = lang
 		debug(`set the language to ${lang}`)
@@ -82,7 +82,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Set the api key for authenticated endpoints
-	authenticate(apiKey: Client.vApiKey)
+	public authenticate(apiKey: Client.vApiKey)
 	{
 		this.apiKey = apiKey
 		debug(`set the api key to ${apiKey}`)
@@ -90,7 +90,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Skip caching and get the live data
-	live()
+	public live()
 	{
 		this._skipCache = true
 		debug(`skipping cache`)
@@ -98,7 +98,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get all ids
-	ids()
+	public ids()
 	{
 		debug(`ids(${this.url}) called`)
 
@@ -146,7 +146,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get a single entry by id
-	get(id?: vId, url = false)
+	public get(id?: vId, url = false)
 	{
 		debug(`get(${this.url}) called`)
 
@@ -208,7 +208,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get multiple entries by ids
-	many(ids: vId[])
+	public many(ids: vId[])
 	{
 		debug(`many(${this.url}) called (${ids.length} ids)`)
 
@@ -306,7 +306,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get a single page
-	page(page: number, size = this.maxPageSize)
+	public page(page: number, size = this.maxPageSize)
 	{
 		debug(`page(${this.url}) called`)
 
@@ -371,7 +371,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get all entries
-	all()
+	public all()
 	{
 		debug(`all(${this.url}) called`)
 
