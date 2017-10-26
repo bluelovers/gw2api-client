@@ -1,7 +1,7 @@
 /* eslint-env node, mocha */
 import { expect } from 'chai'
 import { mockClient, fetchMock } from '../mocks/client.mock'
-import Module from '../../src/endpoints/characters'
+import Module from '../../build/endpoints/characters'
 
 describe('endpoints > characters', () => {
   let endpoint
