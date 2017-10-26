@@ -20,10 +20,10 @@ export interface IClient
 export class Client implements IClient
 {
 
-	public lang: vLang = 'en';
-	public apiKey: vApiKey = false;
-	public fetch = fetch;
-	public caches = [nullCache()];
+	lang: vLang = 'en';
+	apiKey: vApiKey = false;
+	fetch = fetch;
+	caches = [nullCache()];
 
 	constructor()
 	{
