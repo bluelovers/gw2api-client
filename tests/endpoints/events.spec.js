@@ -1,7 +1,7 @@
 /* eslint-env node, mocha */
 import { expect } from 'chai'
 import { mockClient, fetchMock } from '../mocks/client.mock'
-import Module from '../../build/endpoints/events'
+import Module, { transformV1Format } from '../../build/endpoints/events'
 
 describe('endpoints > events', () => {
   let endpoint
@@ -11,7 +11,7 @@ describe('endpoints > events', () => {
   })
 
   it('transforms the v1 format into v2', () => {
-    let transformer = Module.__get__('transformV1Format')
+    let transformer = transformV1Format
     let content = transformer({
       events: {
         'uuid-one': {name: 'Defeat elite'},
