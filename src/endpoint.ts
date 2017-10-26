@@ -45,25 +45,25 @@ export function staticImplements<T>()
 export class AbstractEndpoint implements IAbstractEndpoint
 {
 
-	public lang: Client.vLang;
-	public apiKey: Client.vApiKey;
-	public fetch;
-	public caches: any[];
+	lang: Client.vLang;
+	apiKey: Client.vApiKey;
+	fetch;
+	caches: any[];
 
-	public baseUrl = 'https://api.guildwars2.com';
-	public isPaginated = false;
-	public maxPageSize = 200;
-	public isBulk = false;
-	public supportsBulkAll = true;
-	public isLocalized = false;
-	public isAuthenticated = false;
-	public isOptionallyAuthenticated = false;
-	public credentials = false;
+	baseUrl = 'https://api.guildwars2.com';
+	isPaginated = false;
+	maxPageSize = 200;
+	isBulk = false;
+	supportsBulkAll = true;
+	isLocalized = false;
+	isAuthenticated = false;
+	isOptionallyAuthenticated = false;
+	credentials = false;
 
-	public _skipCache = false;
+	_skipCache = false;
 
-	public url?: string;
-	public cacheTime?: number;
+	url?: string;
+	cacheTime?: number;
 
 	constructor(parent: Client.Client | AbstractEndpoint)
 	{
@@ -139,7 +139,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get all ids from the live API
-	_ids()
+	private _ids()
 	{
 		debug(`ids(${this.url}) requesting from api`)
 		return this._request(this.url)
@@ -187,7 +187,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get a single entry by id from the live API
-	_get(id, url)
+	private _get(id, url)
 	{
 		debug(`get(${this.url}) requesting from api`)
 
@@ -278,7 +278,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get multiple entries by ids from the live API
-	_many(ids, partialRequest = false)
+	private _many(ids, partialRequest = false)
 	{
 		debug(`many(${this.url}) requesting from api (${ids.length} ids)`)
 
@@ -364,7 +364,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get a single page from the live API
-	_page(page, size)
+	private _page(page, size)
 	{
 		debug(`page(${this.url}) requesting from api`)
 		return this._request(`${this.url}?page=${page}&page_size=${size}`)
@@ -419,7 +419,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get all entries from the live API
-	_all()
+	private _all()
 	{
 		debug(`all(${this.url}) requesting from api`)
 
@@ -462,20 +462,20 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Set a single cache key in all connected cache storages
-	_cacheSetSingle(key, value)
+	private _cacheSetSingle(key, value)
 	{
 		this.caches.map(cache => cache.set(key, value, this.cacheTime))
 	}
 
 	// Set multiples cache key in all connected cache storages
-	_cacheSetMany(values)
+	private _cacheSetMany(values)
 	{
 		values = values.map(value => [value[0], value[1], this.cacheTime])
 		this.caches.map(cache => cache.mset(values))
 	}
 
 	// Get a cached value out of the first possible connected cache storages
-	_cacheGetSingle(key, index = 0)
+	private _cacheGetSingle(key, index = 0)
 	{
 		return this.caches[index].get(key).then(value =>
 		{
@@ -489,7 +489,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get multiple cached values out of the first possible connected cache storages
-	_cacheGetMany(keys, index = 0)
+	private _cacheGetMany(keys, index = 0)
 	{
 		return this.caches[index].mget(keys).then(values =>
 		{
@@ -516,7 +516,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get a cache hash for an identifier
-	_cacheHash(id)
+	private _cacheHash(id)
 	{
 		let hash = ''
 
@@ -539,7 +539,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Execute a single request
-	_request(url, type = 'json')
+	private _request(url, type = 'json')
 	{
 		url = this._buildUrl(url)
 		debugRequest(`single url ${url}`)
@@ -551,7 +551,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Execute multiple requests in parallel
-	_requestMany(urls, type = 'json')
+	private _requestMany(urls, type = 'json')
 	{
 		urls = urls.map(url => this._buildUrl(url))
 		debugRequest(`multiple urls ${urls.join(', ')}`)
@@ -563,7 +563,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Build the headers for localization and authentication
-	_buildUrl(url)
+	private _buildUrl(url)
 	{
 		// Add the base url
 		url = this.baseUrl + url
@@ -595,7 +595,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Guarantee the element order of bulk results
-	_sortByIdList(entries, ids)
+	private _sortByIdList(entries, ids)
 	{
 		// Hash map of the indexes for better time complexity on big arrays
 		let indexMap = {}
@@ -609,7 +609,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 		return entries
 	}
 
-	_usesApiKey()
+	private _usesApiKey()
 	{
 		return this.isAuthenticated && (!this.isOptionallyAuthenticated || this.apiKey)
 	}
