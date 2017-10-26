@@ -1,7 +1,7 @@
 /* eslint-env node, mocha */
 import { expect } from 'chai'
 import { mockClient, fetchMock } from './mocks/client.mock'
-import Module from '../src/endpoint'
+import Module from '../build/endpoint'
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 async function expectError (callback) {
