@@ -146,7 +146,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get a single entry by id
-	public get(id?: vId, url = false)
+	public get(id?: vId, url = false): Promise<any>
 	{
 		debug(`get(${this.url}) called`)
 
@@ -208,7 +208,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get multiple entries by ids
-	public many(ids: vId[])
+	public many(ids: vId[]): Promise<any[]>
 	{
 		debug(`many(${this.url}) called (${ids.length} ids)`)
 
@@ -306,7 +306,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get a single page
-	public page(page: number, size = this.maxPageSize)
+	public page(page: number, size: number = this.maxPageSize): Promise<any[]>
 	{
 		debug(`page(${this.url}) called`)
 
@@ -371,7 +371,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get all entries
-	public all()
+	public all(): Promise<any[]>
 	{
 		debug(`all(${this.url}) called`)
 
