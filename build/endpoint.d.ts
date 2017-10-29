@@ -41,13 +41,13 @@ export declare class AbstractEndpoint implements IAbstractEndpoint {
     live(): this;
     ids(): Promise<vId[]>;
     private _ids();
-    get(id?: vId, url?: boolean): any;
+    get(id?: vId, url?: boolean): Promise<any>;
     private _get(id, url);
-    many(ids: vId[]): any;
+    many(ids: vId[]): Promise<any[]>;
     private _many(ids, partialRequest?);
-    page(page: number, size?: number): any;
+    page(page: number, size?: number): Promise<any[]>;
     private _page(page, size);
-    all(): any;
+    all(): Promise<any[]>;
     private _all();
     private _cacheSetSingle(key, value);
     private _cacheSetMany(values);
