@@ -58,6 +58,7 @@ export class Client implements IClient
 	{
 		const buildEndpoint = this.build()
 		const promises = {
+			// @ts-ignore
 			cacheBuildId: () => buildEndpoint._cacheGetSingle('cacheBuildId'),
 			buildId: () => buildEndpoint.live().get()
 		}
@@ -76,6 +77,7 @@ export class Client implements IClient
 
 			// Flush the caches (if needed) and save the current build id
 			return flow.parallel(flushPromises)
+				// @ts-ignore
 				.then(() => buildEndpoint._cacheSetSingle('cacheBuildId', resp.buildId))
 		})
 	}
