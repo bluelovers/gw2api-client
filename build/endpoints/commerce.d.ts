@@ -29,13 +29,32 @@ export declare class ListingsEndpoint extends AbstractEndpoint {
 export declare class PricesEndpoint extends AbstractEndpoint {
     constructor(client: any);
 }
+export declare type vDataISO = string | Date;
 export interface ITransactionsEndpointData {
+    /**
+     * Id of the transaction
+     */
     id: number;
+    /**
+     * The item id
+     */
     item_id: number;
+    /**
+     * The price in coins
+     */
     price: number;
+    /**
+     * The quantity of the item
+     */
     quantity: number;
-    created: string | Date;
-    purchased: string | Date;
+    /**
+     * The date of creation, using ISO-8601 standard
+     */
+    created: vDataISO;
+    /**
+     * The date of purchase, using ISO-8601 standard. Not shown in current second-level endpoint
+     */
+    purchased?: vDataISO;
 }
 export declare class TransactionsEndpoint extends AbstractEndpoint {
     constructor(client: any, type: any, list: any);
