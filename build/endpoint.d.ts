@@ -39,7 +39,7 @@ export declare class AbstractEndpoint implements IAbstractEndpoint {
     language(lang: Client.vLang): this;
     authenticate(apiKey: Client.vApiKey): this;
     live(): this;
-    ids(): any;
+    ids(): Promise<vId[]>;
     private _ids();
     get(id?: vId, url?: boolean): any;
     private _get(id, url);

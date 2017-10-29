@@ -98,7 +98,7 @@ export class AbstractEndpoint implements IAbstractEndpoint
 	}
 
 	// Get all ids
-	public ids()
+	public ids(): Promise<vId[]>
 	{
 		debug(`ids(${this.url}) called`)
 
