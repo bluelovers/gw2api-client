@@ -34,7 +34,7 @@ export declare class SeasonsEndpoint extends AbstractEndpoint {
 export declare class SeasonLeaderboardEndpoint extends AbstractEndpoint {
     id: any;
     constructor(client: any, id: any);
-    ids(): any;
+    ids(): Promise<any>;
     board(board: any, region: any): SeasonLeaderboardBoardEndpoint;
 }
 export declare class SeasonLeaderboardBoardEndpoint extends AbstractEndpoint {
