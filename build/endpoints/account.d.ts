@@ -38,8 +38,8 @@ export default AccountEndpoint;
 export declare class AchievementsEndpoint extends AbstractEndpoint {
     constructor(client: any);
     ids(): Promise<never>;
-    get(id: any): any;
-    all(): any;
+    get(id: any): Promise<any>;
+    all(): Promise<any>;
 }
 export declare class BankEndpoint extends AbstractEndpoint {
     constructor(client: any);
