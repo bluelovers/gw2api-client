@@ -12,7 +12,7 @@ export declare class AbilitiesEndpoint extends AbstractEndpoint {
 }
 export declare class MatchesEndpoint extends AbstractEndpoint {
     constructor(client: any);
-    world(worldId: any): any;
+    world(worldId: any): Promise<any>;
     overview(): MatchesOverviewEndpoint;
     scores(): MatchesScoresEndpoint;
     stats(id: any): MatchesStatsEndpoint;
@@ -29,16 +29,16 @@ export declare class TopStatsEndpoint extends AbstractEndpoint {
 }
 export declare class MatchesOverviewEndpoint extends AbstractEndpoint {
     constructor(client: any);
-    world(worldId: any): any;
+    world(worldId: any): Promise<any>;
 }
 export declare class MatchesScoresEndpoint extends AbstractEndpoint {
     constructor(client: any);
-    world(worldId: any): any;
+    world(worldId: any): Promise<any>;
 }
 export declare class MatchesStatsEndpoint extends AbstractEndpoint {
     id: any;
     constructor(client: any, id: any);
-    world(worldId: any): any;
+    world(worldId: any): Promise<any>;
     teams(team: any): TeamsEndpoint;
 }
 export declare class ObjectivesEndpoint extends AbstractEndpoint {

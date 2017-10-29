@@ -2,7 +2,7 @@ import AbstractEndpoint from '../endpoint';
 export declare class GuildEndpoint extends AbstractEndpoint {
     id: string;
     constructor(client: any, id: any);
-    get(id: any): any;
+    get(id: any): Promise<any>;
     permissions(): PermissionsEndpoint;
     search(name: any): any;
     upgrades(): AllUpgradesEndpoint;
@@ -20,14 +20,14 @@ export declare class PermissionsEndpoint extends AbstractEndpoint {
 }
 export declare class SearchEndpoint extends AbstractEndpoint {
     constructor(client: any);
-    name(name: any): any;
+    name(name: any): Promise<any>;
 }
 export declare class AllUpgradesEndpoint extends AbstractEndpoint {
     constructor(client: any);
 }
 export declare class LogEndpoint extends AbstractEndpoint {
     constructor(client: any, id: any);
-    since(logId: any): any;
+    since(logId: any): Promise<any>;
 }
 export declare class MembersEndpoint extends AbstractEndpoint {
     constructor(client: any, id: any);

@@ -1,6 +1,6 @@
 import AbstractEndpoint from '../endpoint'
 
-export default class EmblemEndpoint extends AbstractEndpoint {
+export class EmblemEndpoint extends AbstractEndpoint {
   backgrounds () {
     return new LayersEndpoint(this, 'backgrounds')
   }
@@ -10,7 +10,9 @@ export default class EmblemEndpoint extends AbstractEndpoint {
   }
 }
 
-class LayersEndpoint extends AbstractEndpoint {
+export default EmblemEndpoint
+
+export class LayersEndpoint extends AbstractEndpoint {
   constructor (client, layer) {
     super(client)
     this.url = `/v2/emblem/${layer}`
