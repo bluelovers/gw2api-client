@@ -115,14 +115,34 @@ export class PricesEndpoint extends AbstractEndpoint
 	}
 }
 
+export type vDataISO = string | Date;
+
 export interface ITransactionsEndpointData
 {
+	/**
+	 * Id of the transaction
+	 */
 	id: number;
+	/**
+	 * The item id
+	 */
 	item_id: number;
+	/**
+	 * The price in coins
+	 */
 	price: number;
+	/**
+	 * The quantity of the item
+	 */
 	quantity: number;
-	created: string | Date;
-	purchased: string | Date;
+	/**
+	 * The date of creation, using ISO-8601 standard
+	 */
+	created: vDataISO;
+	/**
+	 * The date of purchase, using ISO-8601 standard. Not shown in current second-level endpoint
+	 */
+	purchased?: vDataISO;
 }
 
 export class TransactionsEndpoint extends AbstractEndpoint
