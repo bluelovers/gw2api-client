@@ -1,6 +1,6 @@
 import AbstractEndpoint from '../endpoint'
 
-export default class ContinentsEndpoint extends AbstractEndpoint {
+export class ContinentsEndpoint extends AbstractEndpoint {
   constructor (client) {
     super(client)
     this.url = '/v2/continents'
@@ -15,7 +15,9 @@ export default class ContinentsEndpoint extends AbstractEndpoint {
   }
 }
 
-class FloorsEndpoint extends AbstractEndpoint {
+export default ContinentsEndpoint
+
+export class FloorsEndpoint extends AbstractEndpoint {
   constructor (client, continentId) {
     super(client)
     this.url = `/v2/continents/${continentId}/floors`
